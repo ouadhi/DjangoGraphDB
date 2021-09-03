@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<head>
+    <title>element</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+tbody {
+  font-size: 90%;
+  font-style: italic;
+}
+
+tfoot {
+  font-weight: bold;
+}
+body {
+  font-family: Arial;
+  margin: 0;
+}
+#footer {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+
+    position: relative ;
+     width=1200PX
+    bottom: 0;
+
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+    <style>#map_4ead44fe38d14c11afa5ccaece865b34 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+
+            <style> #vega_289e3624be974559a0985578286a9906 {
+                position : relative;
+                width : 450.0px;
+                height: 250.0px;
+                left: 0.0%;
+                top: 0.0%;
+
+
+
+            </style>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/1.4.3/vega.min.js"></script>
+   <style>
+   .relative div {
+                     padding: 10px;
+                     position: relative;
+                     background-color: #fff;
+                     margin: 10px;
+                    }
+         .navitemP {
+
+                      display: inline-block;
+                      width: 200px;
+                      height: 200px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;
+
+                    }
+                    .aParent div {
+    float: right;
+    clear: none;
+}
+.bparent div{
+
+ float: left;
+    clear: none;
+}
+.cparent div{
+
+ float: relative;
+    clear: none;
+}         .hierarchicitemElem {
+
+display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #428BCA;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;
+
+}
+
+                    .navitemP:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+                     .hierarchicitem
+                    { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+
+                      .hierarchicParentItem
+                      { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+
+  <!-- Navigation -->
+
+
+
+
+
+
+<center>
+         <img title="About us" src=" staticfiles/img/logo1.png" width="20%" height="122">
+
+         <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 50%; border: none;">
+
+         </center>
+          <div class="relative">
+              <button class="hierarchicParentItem" onclick="window.location='/'" >Page d'acceuil</button>
+            <button class="hierarchicParentItem" onclick="window.location='/patrimoine'">Patrimoine architectural</button>
+            <button class="hierarchicitem" onclick="window.location='/typologie'">Maison traditionnelle</button>
+              <button class="hierarchicitemElem">Eléments architectoniques</button>
+            <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 100%; border: none; ">
+                </p>
+          </div>
+
+
+
+<div>
+
+<div>
+        <div class="aParent">
+            <div  style="width:500px; height:600px">
+                <h4> Plan de la maison </h4>
+                 <img src="staticfiles/img/Maison de Médina dAlger/Patio.PNG" width=550px height= 500px />
+            </div>
+
+</div>
+    <center>
+        <div class ="bparent">
+              <div>
+
+
+                  <table border=1 width=800PX height= 500PX>
+
+                      <tr>
+                          <td colspan="4" > <b> Appelations </b></td>
+
+                      </tr>
+                      <tr >
+                          <td colspan="4" >
+                          {% for d in app %}
+                          <p> {{d}} </p>
+                          {% endfor %}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td > <b> Elément</b></td>
+                          <td><b>Description</b></td>
+                          <td><b>Fonction</b></td>
+                          <td><b>Relation</b></td>
+
+                      </tr>
+
+                      <tr>
+                          <td>{{elem}}  </td>
+                          <td>
+                              {% for d in desc %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+
+                          </td>
+
+                          <td> {% for d in foncts %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+                          </td>
+
+                          <td> {% for d in rels %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+                          </td>
+
+
+                      </tr>
+
+
+                      </table>
+                  <hr/>
+            </div>
+        </div>
+    </center>
+</div>
+
+</div>
+
+
+
+
+
+</div>
+</body>

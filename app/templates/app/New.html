@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Facteurs géo-climatiques </title>
+      <style>
+      .relative div {
+                     padding: 10px;
+                     position: relative;
+                     background-color: #fff;
+                     margin: 10px;
+                    }
+       .navitemP:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+                     .hierarchicitem
+                    { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+
+                      .hierarchicParentItem
+                      { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+    </style>
+  </head>
+  <body>
+   <center>
+         <img src=" staticfiles/img/logo1.png" data-toggle="we are ..." width="20%" height="122">
+         <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 50%; border: none;">
+         </center>
+   <!--
+<h6># zone, Tmin, Tmax, humid, v, enso, prec,alt,long,lat</h6>
+<h6>#Climat_mediterraneen_chaud-ete_Csa, 13.4, 24.9, 75, 192.0 , 8.8, 671.11, "120",  "3E", "36.8N"</h6>-->
+           <div class="relative">
+
+
+            <button class="hierarchicParentItem" onclick="window.location='/'" >Page d'acceuil</button>
+            <button class="hierarchicParentItem" onclick="window.location='/aspect-environnemental'">Aspect environmental</button>
+            <button class="hierarchicitem">Facteurs GéoClimatiques</button>
+            <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 100%; border: none; ">
+                </p>
+          </div>
+    <div class="container-fluid p-5">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+             <!-- <a class="nav-item nav-link" id="nav-aspect-environnemental" data-toggle="tab" href="#aspect-environnemental" role="tab" aria-controls="nav-home" aria-selected="false">Aspect environnemental</a> -->
+              <!--<a class="nav-item nav-link active" id="nav-aspect-environnemental" data-toggle="tab" href="#facteurs-geo-climatiques" role="tab" aria-controls="nav-profile" aria-selected="true">Facteurs géo-climatiques</a>-->
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade" id="aspect-environnemental" role="tabpanel" aria-labelledby="aspect-environnemental">
+
+            </div>
+            <div class="tab-pane fade show active" id="facteurs-geo-climatiques" role="tabpanel" aria-labelledby="facteurs-geo-climatiques">
+                <div class="p-3">
+                     <form method=get action="{% url 'typologieResultat' %}" >
+                         {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-4 pr-5">
+                            <h5 class="font-weight-bold my-4" style="color: #EA7C31;">Coordonnées géographiques</h5>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h6 class="text-primary font-weight-bold mb-3">Zone climatique</h6>
+                                    <select class="form-control mb-2"name="zone" type="text" placeholder="Zone climatique">
+                                        <option >Climat_mediterraneen_chaud-ete_Csa</option>
+                                        <option >Climats_froids_du_desert_BWk</option>
+                                        <option >Climats_froids_semi-arides_BSk</option >
+
+                                    </select>
+                                </div>{% csrf_token %}
+                                <div class="col-lg-6">
+                                    <h6 class="text-primary font-weight-bold mb-3">Altitude</h6>
+                                    <input class="form-control mb-2" type="text" name="altitude" placeholder="Altitude">
+                                </div>{% csrf_token %}
+                                <div class="col-lg-6">
+                                    <h6 class="text-primary font-weight-bold mb-3">Latitude</h6>
+                                    <input class="form-control mb-2" type="text" name="lat" placeholder="Latitude">
+                                </div>{% csrf_token %}
+                                <div class="col-lg-6">
+                                    <h6 class="text-primary font-weight-bold mb-3">Longitude</h6>
+                                    <input class="form-control mb-2" type="text" name="long" placeholder="Longitude">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <h5 class="font-weight-bold my-4" style="color: #EA7C31;">Facteurs de l’environnement géo-climatique</h5>
+                            <div class="row">
+                                <div class="col">{% csrf_token %}
+                                    <h6 class="text-primary font-weight-bold mb-3">Température</h6>
+                                    <input class="form-control mb-2" type="text" name="temperatureMin" placeholder="T° moyenne min">
+                                    <input class="form-control mb-2" type="text" name="temperatureMax" placeholder="T° moyenne max">
+                                    <input class="form-control mb-2" type="text" placeholder="Amplitude therm">
+                                </div>
+                                <div class="col">{% csrf_token %}
+                                    <h6 class="text-primary font-weight-bold mb-3">Ensoleillement</h6>
+                                    <input class="form-control mb-2" type="text" name="ensol"placeholder="Rayonnement direct">
+                                    <input class="form-control mb-2" type="text" placeholder="Rayonnement diffus">
+                                    <input class="form-control mb-2" type="text" placeholder="Angle d’incidence">
+                                </div>
+                                <div class="col">{% csrf_token %}
+                                    <h6 class="text-primary font-weight-bold mb-3">Vent</h6>
+                                    <input class="form-control mb-2" type="text" placeholder="Nature">
+                                    <input class="form-control mb-2" type="text" name="vent" placeholder="Puissance">
+                                    <input class="form-control mb-2" type="text" placeholder="Direction">
+                                </div>
+                                <div class="col">{% csrf_token %}
+                                    <h6 class="text-primary font-weight-bold mb-3">Précipitations</h6>
+                                    <input class="form-control mb-2" type="text" name="precipitation" placeholder="Précipitations">
+                                </div>
+                                <div class="col">{% csrf_token %}
+                                    <h6 class="text-primary font-weight-bold mb-3">Humidité relative</h6>
+                                    <input class="form-control mb-2" type="text" name="humidite" placeholder="Humidité relative">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <h5 class="font-weight-bold my-4 mt-5" style="color: #EA7C31;">Echelle qualitative</h5>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">vvl</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">vl</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">l</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">m</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">h</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">vh</h6>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-primary font-weight-bold">vvh</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="col-12">
+                                        <h6 class="text-primary font-weight-bold mb-3">Température</h6>
+                                        <h6 class="text-primary font-weight-bold mb-3">Ensoleillement</h6>
+                                        <h6 class="text-primary font-weight-bold mb-3">Température</h6>
+                                        <h6 class="text-primary font-weight-bold mb-3">Vent</h6>
+                                        <h6 class="text-primary font-weight-bold mb-3">Précipitations</h6>
+                                        <h6 class="text-primary font-weight-bold mb-3">Humidité relative</h6>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-11">
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                            <input type="range" class="custom-range mb-3" min="0" max="6" step="1" id="customRange3">                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-3 text-center">
+                        <button type="submit" class="btn btn-lg btn-success">Lancer</button>
+                    </div>
+                     </form>
+                </div>
+            </div>
+          </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

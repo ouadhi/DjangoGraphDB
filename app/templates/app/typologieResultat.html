@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+         <title>Résultat</title>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Facteurs géo-climatiques </title>
+      <style>
+
+      .relative div {
+                     padding: 10px;
+                     position: relative;
+                     background-color: #fff;
+                     margin: 10px;
+                    }
+       .navitemP:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+                     .hierarchicitem
+                    { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+
+                      .hierarchicParentItem
+                      { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+.split-list ul{
+  float: left;
+  margin-left: 1em;
+}
+.split-list li{
+  padding-right: 2em;
+  line-height: 1.5em;
+  @include font-size(12px);
+ }
+
+    </style>
+
+  </head>
+  <body>
+   <center>
+         <img title="About us" src=" staticfiles/img/logo1.png" width="20%" height="122">
+
+         <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 50%; border: none;">
+
+         </center>
+           <div class="relative">
+
+
+            <button class="hierarchicParentItem" onclick="window.location='/'" >Page d'acceuil</button>
+            <button class="hierarchicParentItem" onclick="window.location='/aspect-environnemental'">Aspect environmental</button>
+            <button class="hierarchicitem">Facteurs GéoClimatiques</button>
+            <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 100%; border: none; ">
+                </p>
+          </div>
+
+    <br>
+<!--
+<script>
+    $(document).ready(function() {
+        var ctx = $("#chart-line");
+        var myLineChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Running', 'Swimming', 'Eating', 'Cycling', 'Skating', 'Singing', 'Balling'],
+                datasets: [{
+                    data: [150, 164, 210, 195, 169, 184, 250],
+                    label: "A Team",
+                    borderColor: "#458af7",
+                    backgroundColor: '#458af7',
+                    fill: true
+                }, {
+                    data: [168, 170, 178, 190, 203, 276, 279],
+                    label: "B Team",
+                    borderColor: "#3cba9f",
+                    fill: true,
+                    backgroundColor: '#3cba9f'
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'School Tournament(Max points - 300)'
+                }
+            }
+        });
+    });
+</script>-->
+   <div>
+
+<center>
+    <h5> Parametre envirennemantaux entrés </h5>
+    <label>
+
+    </label>
+       <table border=0 width="60%">
+
+           <tr>
+               <td><b> Zone climatique</b></td>
+               <td><b> Latitude</b></td>
+               <td><b> Longitude</b></td>
+               <td><b> Altitude </b></td>
+           </tr>
+           <tr>
+               <td>{{zone}}</td>
+               <td><b> {{lat}}</b></td>
+               <td><b> {{long}}</b></td>
+               <td><b>{{alt}}</b></td>
+           </tr>
+       </table>
+</center>
+    <label>
+
+    </label>
+<center>
+       <table border=0 width="60%">
+           <tr>
+           <td><b> Wilaya</b></td>
+               <td><b> Secteur</b></td>
+               <td><b> Typologie </b></td>
+           </tr>
+            <tr>
+           <td><b> {{wilaya}}</b></td>
+               <td><b> {{secteur}}</b></td>
+               <td><b> {{typo}} </b></td>
+           </tr>
+       </table>
+</center>
+</div>
+
+<label>
+
+    </label><label>
+
+    </label>
+   <!--
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row">
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="col-sm-8 col-md-6">
+                    <div class="card">
+                        <div class="card-header">Paramètres environnementaux (Graphique radar)</div>
+                        <div class="card-body" style="height: 420px">
+                            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div> <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+   <div class="row">
+   <div class="text-center bg-faded col-sm-6 ">
+       <h3> Les Cibles de la HQE correspondantes </h3>
+       {% for d in cibles %}
+           <p>
+               {{ d }}
+
+           </p>
+                {% endfor %}
+
+   </div>
+   <div class="text-center bg-faded col-sm-5 ">
+       <center>
+       <h3> Carte géographique de la zone climatique </h3>
+       </center>
+       <center>
+             <img src="staticfiles/img/Maison de Médina dAlger/image_Page1_1.png" width=400px height= 300px />
+       </center>
+   </div>
+       <label>
+
+       </label>
+
+
+
+
+       <label>
+
+       </label>
+        <center>
+            <label>
+
+       </label>
+            <label>
+
+       </label>
+            <div >
+  <h3> Les dispositifs de la zone climatique </h3>
+{% csrf_token %}
+                <label>
+
+       </label>
+                   <ul class="split-list">
+                       {%  for elem in dispo %}
+
+
+                           <li> <a href="#">{{elem}} </a></li>
+
+                       {% endfor %}
+                   </ul>
+
+
+
+                    </div>
+           </center>
+
+
+   </div>
+   <label>
+
+   </label>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    $(function($) {
+    var num_cols = 4,
+    container = $('.split-list'),
+    listItem = 'li',
+    listClass = 'sub-list';
+    container.each(function() {
+        var items_per_col = new Array(),
+        items = $(this).find(listItem),
+        min_items_per_col = Math.floor(items.length / num_cols),
+        difference = items.length - (min_items_per_col * num_cols);
+        for (var i = 0; i < num_cols; i++) {
+            if (i < difference) {
+                items_per_col[i] = min_items_per_col + 1;
+            } else {
+                items_per_col[i] = min_items_per_col;
+            }
+        }
+        for (var i = 0; i < num_cols; i++) {
+            $(this).append($('<ul ></ul>').addClass(listClass));
+            for (var j = 0; j < items_per_col[i]; j++) {
+                var pointer = 0;
+                for (var k = 0; k < i; k++) {
+                    pointer += items_per_col[k];
+                }
+                $(this).find('.' + listClass).last().append(items[j + pointer]);
+            }
+        }
+    });
+});
+</script>
+  </body>
+</html>

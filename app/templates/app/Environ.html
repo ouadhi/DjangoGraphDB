@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Aspect environnemental </title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="staticfiles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+                    .relative {
+                     padding: 10px;
+                     position: relative;
+                     background-color: #fff;
+                     margin: 10px;
+                    }
+                    .navitem {
+                      display: inline-block;
+                      width: 180px;
+                      height: 180px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;
+
+                    }
+                    .navitem:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+                    .hierarchicitem
+                    { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+
+                      .hierarchicParentItem
+                      { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+        </style>
+        <!-- Bootstrap core JavaScript -->
+        <script src="staticfiles/vendor/jquery/jquery.min.js"></script>
+        <script src="staticfiles/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </head>
+<body>
+{% load static %}
+     <div>
+           <center>
+         <img src=" staticfiles/img/logo1.png" data-toggle="we are ..." width="20%" height="122">
+         <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 50%; border: none;">
+         </center>
+
+
+     <div class="relative">
+            <button class="hierarchicParentItem" onclick="window.location='/'" >Page d'acceuil</button>
+            <button class="hierarchicParentItem" onclick="window.location='/aspect-environnemental'">Aspect environmental</button>
+           <!-- <button class="hierarchicitem">Facteurs geo-climatiques</button>-->
+ <hr style="height: 2px; color: #839D2D; background-color: #839D2D; width: 100%; border: none; ">
+     </div>
+     </div>
+    <div >
+
+    <center>
+
+            <button class="navitem">Zone climatique</button>
+            <button class="navitem">Dispositifs environm</button>
+            <button class="navitem" onclick="window.location='/cibles'">Cibles HQE</button>
+            <button class="navitem" onclick="window.location='/new-page'" title="Introduire des données climatiques pour déduire les correspondants">Facteurs géo-Climatiques</button>
+        </p>
+        </center>
+    </div>
+
+</body>
+
+</html>

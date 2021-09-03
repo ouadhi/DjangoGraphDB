@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/leaflet/leaflet.css" />
+    <script src="<%= request.getContextPath() %>/leaflet/leaflet.js"></script>
+   <style>
+   #mapid { height: 600px;
+            weight: 100px;}
+   </style>
+
+  <title>Turath</title>
+{% load static %}
+
+  <!-- Bootstrap core CSS -->
+  <link href="staticfiles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+{% load static %}
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+{% load static %}
+
+  <!-- Custom styles for this template -->
+
+  <link href="staticfiles/css/business-casual.min.css" rel="stylesheet">
+
+   <style>
+   #mapid { height: 600px;
+            weight: 100px;}
+   </style>
+       .navitemP {
+                      display: inline-block;
+                      width: 200px;
+                      height: 200px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;
+
+                    }
+                    .navitemP:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+</head>
+
+<body>
+<center>
+
+
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+     <img src=" staticfiles/img/Turath.png" alt="">
+    <span class="site-heading-upper text-primary mb-3">Une plateforme pour </span>
+    <span class="site-heading-upper text-primary mb-3">Le patrimoine architectural algérien</span>
+  </h1>
+
+  <!-- Navigation -->
+
+      <div class=" page-section text-center ">
+        <div class="col-xl-6xl-auto text-center">
+         <form method="Post" action="MotCle">
+          <div class=" form-group rounded text-center  mx-auto ">
+            <label></label>
+                <input class="rounded champ text-center" id="keyWord" name="keyWord" placeholder="Recherche par mot clé" >
+
+            <button type="submit" class="btn btn-primary btn-xl" style="width:130px">Chercher</button>
+             </div>
+
+              </form>
+              </form>
+       </div>
+      </div>
+
+
+  <div class="row">
+       <div >
+
+    <center>
+
+            <button class="navitemP">Patrimoine Architectural</button>
+            <button class="navitemP" onclick="window.location='/aspect-environnemental'">Aspect environmental</button>
+
+        </p>
+        </center>
+    </div>
+<!--
+         <div class="text-center bg-faded col-sm-3 ">
+         <br>
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Les maisons<br> traditionnelles</span>
+
+          </h2>
+            <img class=" rounded" src="staticfiles/img/Dar Hassan Pacha.jpg" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="Maisons">Voir Plus</a>
+          </div>
+           <br>
+        </div>
+
+         <div class="text-center bg-faded col-sm-3 ">
+         <br>
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper"><br> Les espaces</span>
+
+          </h2>
+            <img class=" rounded" src="staticfiles/img/Casbah.jpg" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="Espaces">Voir Plus</a>
+          </div>
+           <br>
+        </div>
+
+         <div class="text-center bg-faded col-sm-3 ">
+         <br>
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Les sites<br> archéologiques</span>
+
+          </h2>
+            <img class=" rounded" src="staticfiles/img/Timgad.jpg" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="Sites">Voir Plus</a>
+          </div>
+           <br>
+        </div>
+
+         <div class="text-center bg-faded col-sm-3 ">
+         <br>
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Les monuments<br> historiques</span>
+
+          </h2>
+            <img class="rounded" src="staticfiles/img/Mémorial des Martyrs.jpg" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="Monuments">Voir Plus</a>
+          </div>
+           <br>
+        </div>
+-->
+ </div>
+
+
+
+  <section class="page-section cta text-center">
+
+     <div class="container text-center">
+
+            <div class="maping">
+      <div class="container ">
+      <div class="col-xl-4mx-auto">
+
+            <div class="bg-faded rounded">
+
+			    <div  class="folium-map"  id="mapid" style="width:1100px; height:1000px" ></div>
+			    <script>
+
+			    </script>
+
+               </div>
+         </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+  {% load static %}
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="staticfiles/vendor/jquery/jquery.min.js"></script>
+  <script src="staticfiles/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<%@include file="footer.html" %>
+
+</center>
+</body>
+</html>

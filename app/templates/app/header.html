@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Header</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href=" {% static 'css/business-casual.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/leaflet/leaflet.css" />
+  <script src="<%= request.getContextPath() %>/leaflet/leaflet.js"></script>
+   <style>
+   #mapid { height: 600px;
+            weight: 100px;}
+   </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+ 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Accueil">Accueil
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Espaces">Les Espaces </a>
+           
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Maisons">Les Maisons traditionnelles</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Monuments">Les Monuments historiques</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Sites">Les Sites arch�ologiques</a>
+          </li>
+           <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="Contact">Contact</a>
+          </li>
+          
+
+          
+          
+        </ul>
+      </div>
+    </div>
+  
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<head>
+    <title>typologie</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+
+tbody {
+  font-size: 90%;
+  font-style: italic;
+}
+
+tfoot {
+  font-weight: bold;
+}
+body {
+  font-family: Arial;
+  margin: 0;
+}
+#footer {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+
+    position: relative ;
+     width=1200PX
+    bottom: 0;
+
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+    <style>#map_4ead44fe38d14c11afa5ccaece865b34 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+
+    </style>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/1.4.3/vega.min.js"></script>
+   <style>
+   .relative div {
+                     padding: 10px;
+                     position: relative;
+                     background-color: #fff;
+                     margin: 10px;
+                    }
+         .navitemP {
+
+                      display: inline-block;
+                      width: 200px;
+                      height: 200px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;
+
+                    }
+
+ .navitemP:hover {
+
+                       transform: scale(1.5) perspective(1px)
+                        }
+
+.aParent div {
+    float: right;
+    clear: none;
+}
+.bparent div{
+
+ float: left;
+    clear: none;
+}
+.cparent div{
+
+ float: relative;
+    clear: none;
+}
+
+
+.carousel-container {
+  width: 600px;
+  height: 350px;
+  position: relative;
+  margin: 0 auto;
+
+}
+.navigation .prev {
+  position: absolute;
+  z-index: 10;
+  font-size: 25px;
+  top: 50%;
+  left: 10px;
+  font-weight: 700;
+}
+.navigation .next {
+  right: 10px;
+  position: absolute;
+  font-size: 25px;
+  z-index: 10;
+  top: 50%;
+}
+.navigation .nav-btn {
+  background: #ED7D31;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+.navigation .nav-btn:hover {
+  background: #A9D18E ;
+}
+.carousel {
+  margin-top: 20px;
+
+  transition: all 0.3s ease;
+
+}
+.carousel img {
+  width: 100%;
+  transition: all 0.3s ease;
+
+}
+
+.item {
+  position: relative;
+  display: none;
+}
+
+.main {
+  display: block;
+}
+label {
+   white-space: pre;
+}
+.split-list ul{
+  float: left;
+  margin-left: 1em;
+}
+.split-list li{
+  padding-right: 2em;
+  line-height: 1.5em;
+  @include font-size(12px);
+ }
+ button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+
+
+}
+    </style>
+<style>
+    .hierarchicitem
+                    { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #A9D18E;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+
+                      .hierarchicParentItem
+                      { display: inline-block;
+                      width: 100px;
+                      height: 60px;
+                      text-align: center;
+                      border: gray;
+                      background-color: #ED7D31;
+                      color: #fff;
+                      cursor: pointer;
+                      font-weight: bold;}
+</style>
+
+</head>
+
+<body>
+
+
+
+
+  <!-- Navigation -->
+ <center>
+         <img src=" staticfiles/img/logo1.png" data-toggle="we are ..." width="20%" height="122">
+         <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 50%; border: none;">
+         </center>
+
+          <div class="relative">
+              <button class="hierarchicParentItem" onclick="window.location='/'" >Page d'acceuil</button>
+            <button class="hierarchicParentItem" onclick="window.location='/patrimoine'">Patrimoine architectural</button>
+            <button class="hierarchicitem" onclick="window.location='/typologies'">Maison traditionnelle</button>
+            <hr style="height: 2px; color: #ED7D31; background-color: #ED7D31; width: 100%; border: none; ">
+                </p>
+          </div>
+
+
+
+<div>
+
+<div>
+        <div class="aParent">
+            <div class="folium-map" id="map_4ead44fe38d14c11afa5ccaece865b34" style="width:500px; height:580px" ></div>
+
+</div>
+    <center>
+        <div class ="bparent">
+              <div>
+
+               <h4>Fiche descriptive : {{nom}}</h4>
+                  <table border=1 width=840PX height= 500PX>
+                      <tr>
+                          <td colspan="3" > <b> Description générale</b></td>
+                      </tr>
+                      <tr>
+                          <td > <b> Appelation</b></td>
+                          <td><b>Designation</b></td>
+                          <td><b>Catégories</b></td>
+                      </tr>
+
+                      <tr>
+                          <td>
+                              {% for d in appel %}
+                              <p> {{d}} </p>
+                              {% endfor %}
+                          </td>
+                          <td>
+                              {% for d in design %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+
+                          </td>
+                          <td>
+                              {% for d in catégorie %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+                          </td>
+
+                      </tr>
+                      <tr>
+                          <td > <b> date de construction</b></td>
+                          <td><b>Secteur sauvegardé</b></td>
+                          <td><b>Wilaya</b></td>
+                      </tr>
+
+                      <tr>
+                          <td>
+                              {% for d in dateConst %}
+                              <p> {{d}} </p>
+                              {% endfor %}
+                          </td>
+                          <td>
+                                 {% for sect in sect %}
+                                  <p> {{sect}} </p>
+                               {% endfor %}
+
+
+                          </td>
+                          <td>
+                              {% for d in wilaya %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+                          </td>
+
+                      </tr>
+                       <tr>
+                          <td colspan="3" > <b> Description</b></td>
+                      </tr>
+                       <tr>
+                          <td colspan="3" >
+                              {% for d in desc %}
+                                  <p> {{d}} </p>
+                                  {% endfor %}
+                          </td>
+                      </tr>
+
+
+
+                      </table>
+
+                    <hr/>
+            </div>
+        </div>
+    </center>
+                   <label>
+
+    </label>
+      <label>
+
+    </label>
+</div>
+
+
+</div>
+  <center>
+<table berder="0" width="500px" height="150PX">
+</table>
+</center>
+  <center>
+     <hr/>
+
+     <h4>Les éléments de {{nom}}</h4>
+
+        <hr/>
+      </center>
+
+<div class="carousel-container">
+  <!--Add Add Preview and Next buttons-->
+    <div class="navigation">
+          <div class="prev nav-btn"><</div>
+          <div class="next nav-btn">></div>
+        </div>
+
+  <!--Add Image-->
+    <div class="item main">
+        <center>
+             <img src="staticfiles/img/{{nom}}/image_Page1_1.png" width=300px height= 300px />
+        </center>
+
+          </div>
+    {% for image in gallerie %}
+    <div class="item ">
+        <center>
+             <img src="staticfiles/img/{{nom}}/{{image}}" width=250px height= 220px />
+         </center>
+          </div>
+        {% endfor %}
+</div>
+  <div  >
+    <center>
+<center>
+<table berder="0" width="500px" height="20PX">
+</table>
+</center>
+
+{% csrf_token %}
+       <ul class="split-list">
+           {%  for elem in elements%}
+           <li> <form action="{% url 'element' %}" method="POST">{% csrf_token %}
+
+                <button type="submit" name="elem" value="{{elem}}" >{{elem}} </button>
+           </form><li>
+           {% endfor %}
+       </ul>
+
+
+    </center>
+</div>
+  <label>
+
+    </label>
+  <label>
+
+    </label>
+
+  <label>
+
+    </label>
+   <label>
+
+    </label>
+   <label>
+
+    </label>
+   <label>
+
+    </label>
+  <center>
+<table berder="0" width="500px" height="90PX">
+</table>
+</center>
+<div>
+    <center>
+          <hr/>
+          <h4>Sources  </h4>
+          <hr/>
+    </center>
+</div>
+       <div>
+           <center>
+               {% for d in doc %}
+
+               <h4> {{d }} </h4>
+
+               {% endfor %}
+
+           </center>
+       <div>
+
+    <label>
+
+    </label>
+      <label>
+
+    </label>
+
+  <div/>
+</div>
+</div>
+ <script>
+    const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const images = document.querySelector('.carousel-container').children;
+const totalImages = images.length;
+let index = 0;
+
+prev.addEventListener('click', () => {
+  nextImage('next');
+})
+
+next.addEventListener('click', () => {
+  nextImage('prev');
+})
+
+function nextImage(direction) {
+  if(direction == 'next') {
+    index++;
+    if(index == totalImages) {
+      index = 0;
+    }
+  } else {
+    if(index == 0) {
+      index = totalImages - 1;
+    } else {
+      index--;
+    }
+  }
+
+  for(let i = 0; i < images.length; i++) {
+    images[i].classList.remove('main');
+  }
+  images[index].classList.add('main');
+}
+</script>
+<script>
+    $(function($) {
+    var num_cols = 4,
+    container = $('.split-list'),
+    listItem = 'li',
+    listClass = 'sub-list';
+    container.each(function() {
+        var items_per_col = new Array(),
+        items = $(this).find(listItem),
+        min_items_per_col = Math.floor(items.length / num_cols),
+        difference = items.length - (min_items_per_col * num_cols);
+        for (var i = 0; i < num_cols; i++) {
+            if (i < difference) {
+                items_per_col[i] = min_items_per_col + 1;
+            } else {
+                items_per_col[i] = min_items_per_col;
+            }
+        }
+        for (var i = 0; i < num_cols; i++) {
+            $(this).append($('<ul ></ul>').addClass(listClass));
+            for (var j = 0; j < items_per_col[i]; j++) {
+                var pointer = 0;
+                for (var k = 0; k < i; k++) {
+                    pointer += items_per_col[k];
+                }
+                $(this).find('.' + listClass).last().append(items[j + pointer]);
+            }
+        }
+    });
+});
+</script>
+</body>
+  <script>
+                  var bounds = null;
+
+                var map_4ead44fe38d14c11afa5ccaece865b34 = L.map(
+                    'map_4ead44fe38d14c11afa5ccaece865b34', {
+                    center: [35.141529, 3.478898],
+                    zoom: 7,
+                    maxBounds: bounds,
+                    layers: [],
+                    worldCopyJump: false,
+                    crs: L.CRS.EPSG3857,
+                    zoomControl: true,
+                    });
+
+                var tile_layer_c0dbaef3723941ea900ddf752c456c9a = L.tileLayer(
+                    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    {
+                    "attribution": null,
+                    "detectRetina": false,
+                    "maxNativeZoom": 18,
+                    "maxZoom": 18,
+                    "minZoom": 0,
+                    "noWrap": false,
+                    "subdomains": "abc"
+            }).addTo(map_4ead44fe38d14c11afa5ccaece865b34);
+
+                  var custom_icon_ad4e1f1c1492432ab4014be347796acf = L.icon({
+                    iconUrl: "staticfiles/leaflet/images/house_icon.png.png",
+                    iconSize: [40,50]});
+
+            var marker_56e58713970844bd8e924fc5e19fd54d = L.marker([{{lat}},  {{long}}]);
+            marker_56e58713970844bd8e924fc5e19fd54d.setIcon(custom_icon_ad4e1f1c1492432ab4014be347796acf);
+            marker_56e58713970844bd8e924fc5e19fd54d.addTo(map_4ead44fe38d14c11afa5ccaece865b34);
+
+
+
+
+
+
+</script>
